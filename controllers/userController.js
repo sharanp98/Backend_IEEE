@@ -16,23 +16,23 @@ exports.login = function(req,res) {
     let user = new User(req.body)
     user.login().then(function(result) {
         req.session.user = {username : user.data.username}
-        // go to '/' only after the session has completed as session requires a trip to the database
+        // go to '/admin' only after the session has completed as session requires a trip to the database
         req.session.save(function(){
-            res.redirect('/')
+            res.redirect('/admin')
         })
     }).catch(function(e) {
         //using flash is the same as:
         //req.session.flash.errors = ['Invalid username/password'(e)]
         req.flash('errors',e)
         req.session.save(function(){
-            res.redirect('/')
+            res.redirect('/admin')
         })
     })
 }
 
 exports.logout = function(req,res) {
     req.session.destroy(function() {
-        res.redirect('/')
+        res.redirect('/admin')
     })
 }
 

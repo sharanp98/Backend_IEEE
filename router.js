@@ -2,9 +2,14 @@ const express = require('express')
 const router = express.Router()
 const userController = require('./controllers/userController')
 const postController = require('./controllers/postController')
+const visitorController = require('./controllers/visitorController')
+
+//visitor related queries
+router.get("/",visitorController.home)
+router.get("/events",visitorController.viewAllEvents)
 
 //user related queries
-router.get('/',userController.home)
+router.get('/admin',userController.home)
 router.post('/login',userController.login)
 router.post('/logout',userController.logout)
 
