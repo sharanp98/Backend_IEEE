@@ -1,0 +1,24 @@
+<%- include('includes/header') %> 
+  <!-- header ends here -->
+  
+  <div class="container py-md-5 container--narrow">
+
+    <%- include('includes/flash') %> 
+
+    <h2> Hello IEEE, these are your posts </h2>
+  
+    <div class="profile-nav nav nav-tabs pt-2 mb-4">
+      <a href="#" class="profile-nav-link nav-item nav-link active">Posts: <%= posts.length %> </a>
+    </div>
+  
+    <div class="list-group">
+      <% posts.forEach(function(post) { %> 
+        <a href="/post/<%= post._id %> " class="list-group-item list-group-item-action">
+          <strong><%= post.title %> </strong> on <%= post.date %> 
+        </a>
+      <% }) %> 
+    </div>
+  </div>
+  
+  <!-- footer begins -->
+  <%- include('includes/footer') %> 
