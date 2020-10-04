@@ -4,8 +4,13 @@ exports.viewCreateScreen = function(req,res) {
     res.render("create-post")
 }
 
+exports.saveImg = function(req) {
+
+}
+
 exports.create = function(req,res) {
-    let post = new Post(req.body)
+    let fileName = Post.saveImg(req.files.img)
+    let post = new Post(req.body,'',fileName)
     post.create().then(function(newId) {
         req.flash("success","New post created successfully")
         req.session.save (() => res.redirect(`post/${newId}`))
@@ -36,7 +41,8 @@ exports.viewEditScreen = async function(req,res) {
 }
 
 exports.edit = function(req,res) {
-    let post = new Post(req.body, req.params.id)
+    let fileName = Post.saveImg(req.files.img)
+    let post = new Post(req.body,req.params.id,fileName)
     post.update().then((status) => {
         if (status == "success") {
             req.flash("success","Post successfully updated")

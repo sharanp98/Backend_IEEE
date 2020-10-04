@@ -5,7 +5,7 @@
 
     <%- include('includes/flash') %>
 
-    <form action="/create-post" method="POST">
+    <form action="/create-post" method="POST" enctype="multipart/form-data">
 
       <div class="form-group">
         <label for="post-date" class="text-muted mb-1"><small>Date (Jan 01 |2020)</small></label>
@@ -38,8 +38,8 @@
         <input required name="participants" id="post-participants" class="form-control form-control-sm" type="text" placeholder="" autocomplete="off">
       </div>
       <div class="form-group">
-        <label for="post-url" class="text-muted mb-1"><small>Image URL</small></label>
-        <input required name="url" id="post-url" class="form-control form-control-sm" type="text" placeholder="" autocomplete="off">
+        <label for="post-img" class="text-muted mb-1"><small>Upload Image</small></label>
+        <input required name="img" id="post-img" class="form-control form-control-sm" type="file" placeholder="" autocomplete="off">
       </div>
       
       <button class="btn btn-primary">Save New Post</button>

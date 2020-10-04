@@ -1,18 +1,19 @@
 const express = require("express")
 const session = require("express-session")
+const fileupload = require("express-fileupload")
 const MongoStore = require('connect-mongo')(session)
 const flash = require('connect-flash')
 const markdown = require('marked')
 
 const app = express()
 
+app.use(fileupload())
+
 //configuring sessions
 let sessionOptions = session({
     secret: "Javascript",
-    
     //store session in mongodb instead as local browser cookie
     store: new MongoStore({client: require('./db')}),
-
     resave: false,
     saveUninitialized: false,
     cookie: {

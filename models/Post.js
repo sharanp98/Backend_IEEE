@@ -2,10 +2,11 @@ const ObjectID = require('mongodb').ObjectID
 const postsCollection = require('../db').db().collection('posts')
 const sanitizeHTML = require('sanitize-html')
 
-let Post = function(data,requestedPostId) {
+let Post = function(data,requestedPostId,fileName) {
     this.data = data
     this.errors = []
     this.requestedPostId = requestedPostId
+    this.fileName = fileName
 }
 
 Post.prototype.cleanUp = function() {
@@ -16,7 +17,7 @@ Post.prototype.cleanUp = function() {
         body: sanitizeHTML(this.data.body.trim(),{allowedTags : [], allowedAttributes : {}}),
         venue: sanitizeHTML(this.data.venue.trim(),{allowedTags : [], allowedAttributes : {}}),
         participants: sanitizeHTML(this.data.participants.trim(),{allowedTags : [], allowedAttributes : {}}),
-        url: sanitizeHTML(this.data.url.trim(),{allowedTags : [], allowedAttributes : {}}),
+        fileName: sanitizeHTML(this.fileName,{allowedTags : [], allowedAttributes : {}}),
     }
 }
 
@@ -41,8 +42,8 @@ Post.prototype.create = function() {
 
 Post.prototype.update = function() {
     return new Promise(async (resolve,reject) => {
+        this.cleanUp()
         try {
-            // let post = await Post.findSingleById(this.requestedPostId)
             let status = await this.actuallyUpdate()
             resolve(status)
         } catch {
@@ -62,7 +63,7 @@ Post.prototype.actuallyUpdate = function() {
                 body : this.data.body,
                 venue : this.data.venue,
                 participants : this.data.participants,
-                url : this.data.url,
+                fileName : this.data.fileName,
             }})
             resolve("success")
         } else {
@@ -126,6 +127,17 @@ Post.delete = function(postIdToDelete) {
             reject()
         }
     })
+}
+
+Post.saveImg = function(img){
+    img.mv('./public/uploads/'+img.name, function(err) {
+        if(!err) {
+            console.log("Image uploaded successfully")
+        } else {
+            console.log(err)
+        }
+    })
+    return img.name
 }
 
 
