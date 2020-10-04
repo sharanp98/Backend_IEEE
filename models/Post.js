@@ -90,7 +90,6 @@ Post.findSingleById = function(id) {
 
 Post.findAllPostsWithPagination = function(page,limit) {
     return new Promise(async function(resolve,reject) {
-
         let posts = await postsCollection.find({}).limit(limit * 1).skip((page - 1) * limit).sort({date : -1}).toArray()
         const count = await postsCollection.countDocuments();
         const totalPages = Math.ceil(count / limit)
@@ -130,14 +129,15 @@ Post.delete = function(postIdToDelete) {
 }
 
 Post.saveImg = function(img){
-    img.mv('./public/uploads/'+img.name, function(err) {
+    let fileName = img.name+'-'+Date.now()
+    img.mv('./public/uploads/'+fileName, function(err) {
         if(!err) {
             console.log("Image uploaded successfully")
         } else {
             console.log(err)
         }
     })
-    return img.name
+    return fileName
 }
 
 

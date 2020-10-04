@@ -4,10 +4,6 @@ exports.viewCreateScreen = function(req,res) {
     res.render("create-post")
 }
 
-exports.saveImg = function(req) {
-
-}
-
 exports.create = function(req,res) {
     let fileName = Post.saveImg(req.files.img)
     let post = new Post(req.body,'',fileName)
