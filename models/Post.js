@@ -42,7 +42,7 @@ Post.prototype.create = function() {
 Post.prototype.update = function() {
     return new Promise(async (resolve,reject) => {
         try {
-            let post = await Post.findSingleById(this.requestedPostId)
+            // let post = await Post.findSingleById(this.requestedPostId)
             let status = await this.actuallyUpdate()
             resolve(status)
         } catch {
@@ -89,6 +89,7 @@ Post.findSingleById = function(id) {
 
 Post.findAllPostsWithPagination = function(page,limit) {
     return new Promise(async function(resolve,reject) {
+
         let posts = await postsCollection.find({}).limit(limit * 1).skip((page - 1) * limit).sort({date : -1}).toArray()
         const count = await postsCollection.countDocuments();
         const totalPages = Math.ceil(count / limit)
