@@ -8,7 +8,7 @@
     <form action="/create-post" method="POST">
 
       <div class="form-group">
-        <label for="post-date" class="text-muted mb-1"><small>Date</small></label>
+        <label for="post-date" class="text-muted mb-1"><small>Date (Jan 01 |2020)</small></label>
         <input required name="date" id="post-date" class="form-control form-control-md" type="text" placeholder="" autocomplete="off">
       </div>
 
@@ -24,7 +24,8 @@
 
       <div class="form-group">
         <label for="post-body" class="text-muted mb-1"><small>Long Description</small></label>
-        <textarea required name="body" id="post-body" class="body-content form-control" type="text"></textarea>
+        <p class="text-muted mb-1"><small><strong>Note:</strong> Long description supports Markdown. Find the markdown cheatsheet <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">here</a></small></p>
+        <textarea rows="5" required name="body" id="post-body" class="body-content form-control" type="text"></textarea>
       </div>
 
       <div class="form-group">
