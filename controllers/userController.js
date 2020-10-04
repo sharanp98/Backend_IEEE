@@ -7,7 +7,7 @@ exports.mustBeLoggedIn = function(req,res,next) {
     } else{
         req.flash("errors","You do not have permission to access this page. Try logging in.")
         req.session.save(function(){
-            res.redirect("/")
+            res.redirect("/admin")
         })
     }
 }

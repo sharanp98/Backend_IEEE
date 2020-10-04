@@ -12,3 +12,13 @@ exports.viewAllEvents = function(req,res) {
         res.redirect("/")
     })
 }
+
+exports.viewSingleEvent = async function(req,res) {
+    try {
+        //router.get(:id) is stored in req.params
+        let post = await Post.findSingleById(req.params.id)
+        res.render("single-event-screen", {post : post})
+    } catch {
+        res.render("404")
+    }
+}

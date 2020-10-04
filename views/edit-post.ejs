@@ -20,8 +20,23 @@
       </div>
 
       <div class="form-group">
+        <label for="post-short_desc" class="text-muted mb-1"><small>Short Description</small></label>
+        <input required name="short_desc" value="<%= post.short_desc %>" id="post-short_desc" class="form-control form-control-sm" type="text" placeholder="" autocomplete="off">
+      </div>
+
+      <div class="form-group">
         <label for="post-body" class="text-muted mb-1"><small>Body Content</small></label>
         <textarea required name="body" id="post-body" class="body-content form-control" type="text"><%= post.body %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="post-venue" class="text-muted mb-1"><small>Venue</small></label>
+        <input required name="venue" value="<%= post.venue %>" id="post-venue" class="form-control form-control-sm" type="text" placeholder="" autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label for="post-participants" class="text-muted mb-1"><small>No Of Participants</small></label>
+        <input required name="participants" value="<%= post.participants %>" id="post-participants" class="form-control form-control-sm" type="text" placeholder="" autocomplete="off">
       </div>
 
       <div class="form-group">

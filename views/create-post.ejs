@@ -14,14 +14,28 @@
 
       <div class="form-group">
         <label for="post-title" class="text-muted mb-1"><small>Title</small></label>
-        <input required name="title" id="post-title" class="form-control form-control-lg form-control-title" type="text" placeholder="" autocomplete="off">
+        <input required name="title" id="post-title" class="form-control form-control-md form-control-title" type="text" placeholder="" autocomplete="off">
       </div>
 
       <div class="form-group">
-        <label for="post-body" class="text-muted mb-1"><small>Body Content</small></label>
+        <label for="post-short_desc" class="text-muted mb-1"><small>Short Description</small></label>
+        <input required name="short_desc" id="post-short_desc" class="form-control form-control-sm" type="text" placeholder="" autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label for="post-body" class="text-muted mb-1"><small>Long Description</small></label>
         <textarea required name="body" id="post-body" class="body-content form-control" type="text"></textarea>
       </div>
 
+      <div class="form-group">
+        <label for="post-venue" class="text-muted mb-1"><small>Venue</small></label>
+        <input required name="venue" id="post-venue" class="form-control form-control-sm" type="text" placeholder="" autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label for="post-participants" class="text-muted mb-1"><small>No Of Participants</small></label>
+        <input required name="participants" id="post-participants" class="form-control form-control-sm" type="text" placeholder="" autocomplete="off">
+      </div>
       <div class="form-group">
         <label for="post-url" class="text-muted mb-1"><small>Image URL</small></label>
         <input required name="url" id="post-url" class="form-control form-control-sm" type="text" placeholder="" autocomplete="off">

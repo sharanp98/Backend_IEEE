@@ -55,7 +55,7 @@ exports.edit = function(req,res) {
     }).catch(() => {
         req.flash("errors","You do not have permission to perform that action")
         req.session.save(function() {
-            res.redirect("/")
+            res.redirect("/admin")
         })
     })
 }

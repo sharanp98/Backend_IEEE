@@ -12,7 +12,10 @@ Post.prototype.cleanUp = function() {
     this.data = {
         date: sanitizeHTML(this.data.date.trim(),{allowedTags : [], allowedAttributes : {}}),
         title: sanitizeHTML(this.data.title.trim(),{allowedTags : [], allowedAttributes : {}}),
+        short_desc: sanitizeHTML(this.data.short_desc.trim(),{allowedTags : [], allowedAttributes : {}}),
         body: sanitizeHTML(this.data.body.trim(),{allowedTags : [], allowedAttributes : {}}),
+        venue: sanitizeHTML(this.data.venue.trim(),{allowedTags : [], allowedAttributes : {}}),
+        participants: sanitizeHTML(this.data.participants.trim(),{allowedTags : [], allowedAttributes : {}}),
         url: sanitizeHTML(this.data.url.trim(),{allowedTags : [], allowedAttributes : {}}),
     }
 }
@@ -55,7 +58,10 @@ Post.prototype.actuallyUpdate = function() {
             await postsCollection.findOneAndUpdate({_id : new ObjectID(this.requestedPostId)}, {$set : {
                 date : this.data.date,
                 title : this.data.title,
+                short_desc : this.data.short_desc,
                 body : this.data.body,
+                venue : this.data.venue,
+                participants : this.data.participants,
                 url : this.data.url,
             }})
             resolve("success")

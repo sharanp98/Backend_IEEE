@@ -7,6 +7,7 @@ const visitorController = require('./controllers/visitorController')
 //visitor related queries
 router.get("/",visitorController.home)
 router.get("/events",visitorController.viewAllEvents)
+router.get("/event/:id",visitorController.viewSingleEvent)
 
 //user related queries
 router.get('/admin',userController.home)

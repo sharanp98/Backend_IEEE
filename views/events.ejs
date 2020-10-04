@@ -15,20 +15,20 @@
 
     <!-- CSS here -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/themify-icons.css">
+    <link rel="stylesheet" href="/css/nice-select.css">
+    <link rel="stylesheet" href="/css/flaticon.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/slicknav.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <!-- <link rel="stylesheet" href="/css/responsive.css"> -->
 </head>
 
 <body>
@@ -60,7 +60,7 @@
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
                                 <a href="/">
-                                    <img src="img/logo.png" alt="logo">
+                                    <img src="/img/logo.png" alt="logo">
                                 </a>
                             </div>
                         </div>
@@ -72,28 +72,28 @@
                                         <li><a class="active"><font face="Times New Roman" size="3">ABOUT<i class="ti-angle-down"></i>
                                         </font></a>
                                                 <ul class="submenu">
-                                                <li><a href="about.html"><font face="Times New Roman" size="3">SB</font></a></li>
-                                                <li><a href="execom2020.html"><font face="Times New Roman" size="3">EXECOM 2020</font></a></li>
-                                                <li><a href="execom2019.html"><font face="Times New Roman" size="3">EXECOM 2019</font></a></li>
+                                                <li><a href="/about.html"><font face="Times New Roman" size="3">SB</font></a></li>
+                                                <li><a href="/execom2020.html"><font face="Times New Roman" size="3">EXECOM 2020</font></a></li>
+                                                <li><a href="/execom2019.html"><font face="Times New Roman" size="3">EXECOM 2019</font></a></li>
                                             </ul>
                                         </li>
                                         
                                          <li><a href="#"><font face="Times New Roman" size="3">SB CHAPTERS </font><i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="ias.html"><font face="Times New Roman" size="3">IAS</font></a></li>
-                                                <li><a href="cs.html"><font face="Times New Roman" size="3">CS</font></a></li>
-                                                <li><a href="pes.html"><font face="Times New Roman" size="3">PES</font></a></li>
-                                                <li><a href="ras.html"><font face="Times New Roman" size="3">RAS</font></a></li>
-                                                <li><a href="wie.html"><font face="Times New Roman" size="3">WIE</font></a></li>
-                                                <li><a href="sight.html"><font face="Times New Roman" size="3">SIGHT</font></a></li>
+                                                <li><a href="/ias.html"><font face="Times New Roman" size="3">IAS</font></a></li>
+                                                <li><a href="/cs.html"><font face="Times New Roman" size="3">CS</font></a></li>
+                                                <li><a href="/pes.html"><font face="Times New Roman" size="3">PES</font></a></li>
+                                                <li><a href="/ras.html"><font face="Times New Roman" size="3">RAS</font></a></li>
+                                                <li><a href="/wie.html"><font face="Times New Roman" size="3">WIE</font></a></li>
+                                                <li><a href="/sight.html"><font face="Times New Roman" size="3">SIGHT</font></a></li>
                                             </ul>
                                         </li>   
 
                                         <li><a href="/events"><font face="Times New Roman" size="3">events</font></a></li>
-                                        <li><a href="Gallery.html"><font face="Times New Roman" size="3">Gallery</font></i></a>
+                                        <li><a href="/Gallery.html"><font face="Times New Roman" size="3">Gallery</font></i></a>
                                         </li>
 
-                                        <li><a href="contact.html"><font face="Times New Roman" size="3">Contact</font></a></li>
+                                        <li><a href="/contact.html"><font face="Times New Roman" size="3">Contact</font></a></li>
                                         <li>
                                             <div class="get_in_tauch">
                                                 <a href="https://forms.gle/DpcY8Fwb9xAR4ei16" class="boxed-btn" style=" padding-top: 10px;margin-top: 2px; padding-bottom: 10px;padding-left: ; width: 98px;">
@@ -147,60 +147,13 @@
                         <div class="section_title">
                             <span class="sub_heading2"><%= post.date %> </span>
                             <h4><%= post.title %> </h4>
-                            <p>Dhyuthi is the flagship event of IEEE SCT SB. </p>
-                            <a href="https://dhyuthi.bitbucket.io/" class="boxed-btn">View More</a>
+                            <p><%= post.short_desc %>  </p>
+                            <a href="/event/<%= post._id %>" class="boxed-btn">View More</a>
                         </div>
                     </div>
                     <hr>
                 </div>
             <% }) %> 
-
-            <div class="row align-items-center mb-80">
-                <div class="col-xl-6 col-md-6">
-                    <div class="section_title">
-                        <span class="sub_heading2">June 9| 2020</span>
-                        <h4>Webinar on Nuclear Energy</h4>
-                        <p>Webinar on Nuclear Energy – The need, The perception, The reality conducted by the Power and Energy Society of IEEE SCT SB as a part of World Environment.</p>
-                        <a href="nuclearpes.html" class="boxed-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-md-6">
-                    <div class="single_project_thumb">
-                        <img src="project/nuclearpes.jpeg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center mb-80">
-                <div class="col-xl-6 col-md-6">
-                    <div class="single_project_thumb">
-                        <img src="project/careerguidance.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-md-6">
-                    <div class="section_title">
-                        <span class="sub_heading2">June 5 |2020</span>
-                        <h4>Ignite Your Passion</h4>
-                        <p>The SIGHT IEEE SCT SB conducted a webinar on “CAREER GUIDANCE” Ignite_Your_Passsion.The session was about choosing a career pathway depending upon our interests and was also about their scopes in the future.The talk was conducted by Dr. Rakesh Godhwani.It was conducted for 10, 11 & 12 standard students.</p>
-                        <a href="iyp.html" class="boxed-btn">View More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center mb-80">
-                <div class="col-xl-6 col-md-6">
-                    <div class="section_title">
-                        <span class="sub_heading2">26 May| 2020</span>
-                        <h4>Webinar on Cyber  Safety</h4>
-                        <p>The WIE AG IEEE SCT SB conducted a webinar on ‘Cyber Safety and Smart Social Networking’.The talk was given by Mr. Milivoje Batista, founder of Atrom G8, who had previously been involved in various cyber security firms. </p>
-                        <a href="cyber.html" class="boxed-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-md-6">
-                    <div class="single_project_thumb">
-                        <img src="project/cybersec1.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -210,7 +163,7 @@
   <div class="pagination">
   
   <a href="/events" class="active">1</a>
-  <a href="project2.html" >2</a>
+  <a href="test.html" >2</a>
   <a href="test.html">3</a>
   <a href="test.html">4</a>
   <a href="test.html">5</a>
@@ -299,32 +252,32 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <!-- JS here -->
-    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/ajax-form.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/scrollIt.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/nice-select.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/plugins.js"></script>
+    <script src="/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/ajax-form.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/js/scrollIt.js"></script>
+    <script src="/js/jquery.scrollUp.min.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/nice-select.min.js"></script>
+    <script src="/js/jquery.slicknav.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/plugins.js"></script>
 
     <!--contact js-->
-    <script src="js/contact.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/mail-script.js"></script>
+    <script src="/js/contact.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/jquery.form.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/mail-script.js"></script>
 
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 
