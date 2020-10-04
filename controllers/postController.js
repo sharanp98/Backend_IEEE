@@ -41,8 +41,14 @@ exports.viewEditScreen = async function(req,res) {
 }
 
 exports.edit = function(req,res) {
-    let fileName = Post.saveImg(req.files.img)
-    let post = new Post(req.body,req.params.id,fileName)
+    let post
+    if(req.files) {
+        let fileName = Post.saveImg(req.files.img)
+        post = new Post(req.body,req.params.id,fileName)
+    }
+    else {
+        post = new Post(req.body,req.params.id)
+    }
     post.update().then((status) => {
         if (status == "success") {
             req.flash("success","Post successfully updated")

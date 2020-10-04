@@ -42,7 +42,6 @@ Post.prototype.create = function() {
 
 Post.prototype.update = function() {
     return new Promise(async (resolve,reject) => {
-        this.cleanUp()
         try {
             let status = await this.actuallyUpdate()
             resolve(status)
@@ -54,9 +53,8 @@ Post.prototype.update = function() {
 
 Post.prototype.actuallyUpdate = function() {
     return new Promise(async (resolve,reject) => {
-        this.cleanUp()
         if (!this.errors.length) {
-            await postsCollection.findOneAndUpdate({_id : new ObjectID(this.requestedPostId)}, {$set : {
+            let params = {
                 date : this.data.date,
                 title : this.data.title,
                 short_desc : this.data.short_desc,
@@ -64,7 +62,9 @@ Post.prototype.actuallyUpdate = function() {
                 venue : this.data.venue,
                 participants : this.data.participants,
                 fileName : this.data.fileName,
-            }})
+            }
+            for(let prop in params) if(!params[prop]) delete params[prop];
+            await postsCollection.findOneAndUpdate({_id : new ObjectID(this.requestedPostId)}, {$set:params})
             resolve("success")
         } else {
             resolve("failure")
