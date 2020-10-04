@@ -87,7 +87,23 @@ Post.findSingleById = function(id) {
     })
 }
 
-Post.findAllPosts = function() {
+Post.findAllPostsWithPagination = function(page,limit) {
+    return new Promise(async function(resolve,reject) {
+        let posts = await postsCollection.find({}).limit(limit * 1).skip((page - 1) * limit).sort({date : -1}).toArray()
+        const count = await postsCollection.countDocuments();
+        const totalPages = Math.ceil(count / limit)
+        const currentPage = parseInt(page)
+        if (posts.length) {
+            resolve([posts,totalPages, currentPage])
+        } 
+        //no posts have been created yet
+        else{
+            reject()
+        }
+    })
+}
+
+Post.findAllPostsWithoutPagination = function() {
     return new Promise(async function(resolve,reject) {
         let posts = await postsCollection.find({}).sort({date : -1}).toArray()
         if (posts.length) {

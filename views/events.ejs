@@ -161,13 +161,10 @@
 <center>
 <div style="background-color: #f7f7f7;">
   <div class="pagination">
-  
-  <a href="/events" class="active">1</a>
-  <a href="test.html" >2</a>
-  <a href="test.html">3</a>
-  <a href="test.html">4</a>
-  <a href="test.html">5</a>
-  <a href="test.html">6</a>
+      <% for (i=1;i<=totalPages;i++) { %>
+        <% let isActive = (i == currentPage) ? 'class=active' : '' %> 
+        <a href="/events?page=<%= i %>&limit=<%= totalPages %> " <%= isActive %> ><%= i %> </a>
+      <% }  %> 
   
   </div>
   </center>

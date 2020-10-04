@@ -5,9 +5,11 @@ exports.home = function(req,res) {
 }
 
 exports.viewAllEvents = function(req,res) {
+    const { page = 1, limit = 5 } = req.query;
     //retrieve all posts
-    Post.findAllPosts().then(function(posts){
-        res.render("events", {posts : posts})
+    Post.findAllPostsWithPagination(page,limit).then(function([posts, totalPages, currentPage]){
+        console.log(totalPages,currentPage)
+        res.render("events", {posts : posts, totalPages: totalPages, currentPage : currentPage})
     }).catch(function(){
         res.redirect("/")
     })

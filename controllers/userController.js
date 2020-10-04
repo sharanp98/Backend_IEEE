@@ -39,7 +39,7 @@ exports.logout = function(req,res) {
 exports.home = function(req,res) {
     if (req.session.user) {
         //retrieve all posts
-        Post.findAllPosts().then(function(posts){
+        Post.findAllPostsWithoutPagination().then(function(posts){
             res.render("profile", {posts : posts})
         }).catch(function(){
             res.render("home-dashboard")
