@@ -163,7 +163,7 @@
   <div class="pagination">
       <% for (i=1;i<=totalPages;i++) { %>
         <% let isActive = (i == currentPage) ? 'class=active' : '' %> 
-        <a href="/events?page=<%= i %>&limit=<%= totalPages %> " <%= isActive %> ><%= i %> </a>
+        <a href="/events?page=<%= i %>" <%= isActive %> ><%= i %> </a>
       <% }  %> 
   
   </div>
