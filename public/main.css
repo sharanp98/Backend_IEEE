@@ -94,6 +94,12 @@ body, .tooltip
   position: relative;
 }
 
+form label.required:after
+{
+    color: red;
+    content: " *";
+}
+
 .liveValidateMessage {
   transition: all .5s ease-out;
   top: -6px;

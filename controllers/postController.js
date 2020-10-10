@@ -5,8 +5,13 @@ exports.viewCreateScreen = function(req,res) {
 }
 
 exports.create = function(req,res) {
-    let fileName = Post.saveImg(req.files.img)
-    let post = new Post(req.body,'',fileName)
+    let post;
+    if(req.files) {
+        let fileName = Post.saveImg(req.files.img)
+        post = new Post(req.body,'',fileName)
+    } else{
+        post = new Post(req.body)
+    }
     post.create().then(function(newId) {
         req.flash("success","New post created successfully")
         req.session.save (() => res.redirect(`post/${newId}`))
@@ -71,9 +76,9 @@ exports.edit = function(req,res) {
 exports.delete = function(req,res) {
     Post.delete(req.params.id).then(() => {
         req.flash("success","Post successfully deleted")
-        req.session.save(() => res.redirect("/"))
+        req.session.save(() => res.redirect("/admin"))
     }).catch(function() {
-        req.flash("success","You do not have permission to perform that action. Try logging in")
-        req.session.save(() => res.redirect("/"))
+        req.flash("error","You do not have permission to perform that action. Try logging in")
+        req.session.save(() => res.redirect("/admin"))
     })
 }
