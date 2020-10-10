@@ -61,7 +61,7 @@ Post.prototype.actuallyUpdate = function() {
                 body : this.data.body,
                 venue : this.data.venue,
                 participants : this.data.participants,
-                fileName : this.data.fileName,
+                fileName : this.fileName,
             }
             for(let prop in params) if(!params[prop]) delete params[prop];
             await postsCollection.findOneAndUpdate({_id : new ObjectID(this.requestedPostId)}, {$set:params})
@@ -129,11 +129,10 @@ Post.delete = function(postIdToDelete) {
 }
 
 Post.saveImg = function(img){
-    let fileName = img.name+'-'+Date.now()
+    let [img_name,img_ext] = img.name.split('.')
+    let fileName = img_name+'-'+Date.now()+'.'+img_ext
     img.mv('./public/uploads/'+fileName, function(err) {
-        if(!err) {
-            console.log("Image uploaded successfully")
-        } else {
+        if(err) {
             console.log(err)
         }
     })

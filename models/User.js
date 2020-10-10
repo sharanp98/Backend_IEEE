@@ -20,7 +20,6 @@ User.prototype.login = function() {
             if (attemptedUser && attemptedUser.password == this.data.password) {
                 resolve("User Found")
             } else {
-                console.log("user not found in model")
                 reject("Invalid username/password")
             }
         }).catch(() => {
