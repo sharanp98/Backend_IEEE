@@ -40,14 +40,17 @@
         <input required name="participants" value="<%= post.participants %>" id="post-participants" class="form-control form-control-sm" type="text" placeholder="" autocomplete="off">
       </div>
 
-      <label class="text-muted mb-1"><small>Uploaded Image</small></label> <br>
-      <div class="form-group pl-2 border">
-        <img id="output" src="/uploads/<%=post.fileName%>" onerror="this.onerror=null;width=0;height=0" alt="No Image Uploaded" class="form-control-sm mt-2" width="300" height="300">
+      <label class="text-muted mb-1"><small>Uploaded Image</small></label>
+      <div class="mt-3 form-group pl-2 border">
+        <img id="output" style="height:200px;width:200px;" src="/uploads/<%=post.fileName%>" alt="No Image Uploaded" class="form-control-sm mt-2">
         <div>
           <label for="post-img" class="mt-2 btn btn-sm btn-info">Change Image</label>
           <input onchange="loadFile(event)" name="img" id="post-img" style="display:none;" accept="image/*" class="form-control form-control-sm" type="file" placeholder="" autocomplete="off">
         </div>  
       </div>
+
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>"/>
+
       <button class="mt-3 btn btn-success">Save Updates</button>
     </form>
   </div>
